@@ -8,8 +8,10 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
-class CategoryViewController: UITableViewController {
+
+class CategoryViewController: SwipeTableViewController {
     
     let realm = try! Realm()
     
@@ -19,6 +21,10 @@ class CategoryViewController: UITableViewController {
         super.viewDidLoad()
         
         loadCategories()
+        tableView.rowHeight = 80.0
+        
+        tableView.separatorStyle = .none
+       
         
     }
     
@@ -28,10 +34,11 @@ class CategoryViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell")!
-        
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         cell.textLabel?.text = categories?[indexPath.row].name ?? "No categories added yet"
         
+        
+        cell.backgroundColor = UIColor(hexString: (categories?[indexPath.row].cellColor)!)        
         return cell
     }
     
@@ -65,19 +72,21 @@ class CategoryViewController: UITableViewController {
             print("Error saving context \(error)")
         }
         tableView.reloadData()
+        
     }
     
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         
-        let alert = UIAlertController(title: "Add new Category", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add new Category", message: "", preferredStyle: .	alert)
         
         let action =  UIAlertAction(title: "Add Category", style: .default) { (action) in
             
             let newCategory = Category()
             newCategory.name = textField.text!
-
+            newCategory.cellColor =  UIColor.randomFlat.hexValue()
+            
             self.saveCategory(with: newCategory)
         }
         
@@ -90,4 +99,16 @@ class CategoryViewController: UITableViewController {
         
     }
     
+    override func updateModel(at indexPath: IndexPath) {
+        if let categoryForDeletion = self.categories?[indexPath.row]{
+            do {
+                try self.realm.write {
+                    self.realm.delete(categoryForDeletion)
+                }
+            } catch {
+                print("Error While Deleting, \(error)")
+            }            
+        }
+    }
 }
+
