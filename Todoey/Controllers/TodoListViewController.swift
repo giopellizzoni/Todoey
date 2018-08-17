@@ -34,20 +34,9 @@ class TodoListViewController: SwipeTableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if let colourHex = selectedCategory?.cellColor {
-            
-            title = selectedCategory?.name
-            guard let navBar = navigationController?.navigationBar else {fatalError("Navigation Bar doesn't exist")}
-            
-            if let navBarColour = UIColor(hexString: colourHex) {
-                navBar.barTintColor = navBarColour
-                navBar.tintColor = ContrastColorOf(navBarColour, returnFlat: true)
-                navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : ContrastColorOf(navBarColour, returnFlat: true)]
-                searchBar.barTintColor = navBarColour
-            }
-           
-            
-        }
+        guard let colourHex = selectedCategory?.cellColor else { fatalError() }
+        title = selectedCategory?.name
+        updateNavBar(withHexCode: colourHex)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,6 +54,19 @@ class TodoListViewController: SwipeTableViewController {
             cell.textLabel?.text = "No Items Added"
         }
         return cell
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        updateNavBar(withHexCode: "FF0000")
+    }
+    
+    func updateNavBar(withHexCode colourHex: String) {
+        guard let navBar = navigationController?.navigationBar else {fatalError("Navigation Bar doesn't exist")}
+        guard let navBarColour = UIColor(hexString: colourHex) else {fatalError()}
+        navBar.barTintColor = navBarColour
+        navBar.tintColor = ContrastColorOf(navBarColour, returnFlat: true)
+        navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : ContrastColorOf(navBarColour, returnFlat: true)]
+        searchBar.barTintColor = navBarColour
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
