@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		662E945A21273B94008B961C /* TodoeyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662E945921273B94008B961C /* TodoeyUITests.swift */; };
 		6644CB04212357650005B0B9 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6644CB03212357650005B0B9 /* CategoryViewController.swift */; };
 		6646B88921236DEE00DA36B3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6646B88821236DEE00DA36B3 /* Item.swift */; };
 		6646B88B21236DFD00DA36B3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6646B88A21236DFD00DA36B3 /* Category.swift */; };
@@ -19,7 +20,20 @@
 		B917FC17B7A2EDF69092A585 /* Pods_Todoey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ABC76DC81A24FBE91EB3677 /* Pods_Todoey.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		662E945C21273B94008B961C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66B469C7212214DD00118553 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66B469CE212214DD00118553;
+			remoteInfo = Todoey;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		662E945721273B94008B961C /* TodoeyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoeyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		662E945921273B94008B961C /* TodoeyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoeyUITests.swift; sourceTree = "<group>"; };
+		662E945B21273B94008B961C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6644CB03212357650005B0B9 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		6646B88821236DEE00DA36B3 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		6646B88A21236DFD00DA36B3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -37,6 +51,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		662E945421273B94008B961C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		66B469CC212214DD00118553 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -54,6 +75,15 @@
 				7ABC76DC81A24FBE91EB3677 /* Pods_Todoey.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		662E945821273B94008B961C /* TodoeyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				662E945921273B94008B961C /* TodoeyUITests.swift */,
+				662E945B21273B94008B961C /* Info.plist */,
+			);
+			path = TodoeyUITests;
 			sourceTree = "<group>";
 		};
 		6644CACE212310260005B0B9 /* DataModel */ = {
@@ -96,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				66B469D1212214DD00118553 /* Todoey */,
+				662E945821273B94008B961C /* TodoeyUITests */,
 				66B469D0212214DD00118553 /* Products */,
 				78281D489F439365DE17A9C4 /* Pods */,
 				39661EBDA3AC986307851598 /* Frameworks */,
@@ -106,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				66B469CF212214DD00118553 /* Todoey.app */,
+				662E945721273B94008B961C /* TodoeyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,6 +175,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		662E945621273B94008B961C /* TodoeyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 662E946021273B94008B961C /* Build configuration list for PBXNativeTarget "TodoeyUITests" */;
+			buildPhases = (
+				662E945321273B94008B961C /* Sources */,
+				662E945421273B94008B961C /* Frameworks */,
+				662E945521273B94008B961C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				662E945D21273B94008B961C /* PBXTargetDependency */,
+			);
+			name = TodoeyUITests;
+			productName = TodoeyUITests;
+			productReference = 662E945721273B94008B961C /* TodoeyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		66B469CE212214DD00118553 /* Todoey */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66B469E1212214EA00118553 /* Build configuration list for PBXNativeTarget "Todoey" */;
@@ -172,6 +222,10 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = ViViTECH;
 				TargetAttributes = {
+					662E945621273B94008B961C = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 66B469CE212214DD00118553;
+					};
 					66B469CE212214DD00118553 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
@@ -191,11 +245,19 @@
 			projectRoot = "";
 			targets = (
 				66B469CE212214DD00118553 /* Todoey */,
+				662E945621273B94008B961C /* TodoeyUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		662E945521273B94008B961C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		66B469CD212214DD00118553 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -254,6 +316,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		662E945321273B94008B961C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				662E945A21273B94008B961C /* TodoeyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		66B469CB212214DD00118553 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,6 +338,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		662E945D21273B94008B961C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66B469CE212214DD00118553 /* Todoey */;
+			targetProxy = 662E945C21273B94008B961C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		66B469D6212214DD00118553 /* Main.storyboard */ = {
@@ -289,6 +367,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		662E945E21273B94008B961C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U58B9B4JZB;
+				INFOPLIST_FILE = TodoeyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.vivitech.TodoeyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Todoey;
+			};
+			name = Debug;
+		};
+		662E945F21273B94008B961C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U58B9B4JZB;
+				INFOPLIST_FILE = TodoeyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.vivitech.TodoeyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Todoey;
+			};
+			name = Release;
+		};
 		66B469DF212214EA00118553 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -444,6 +560,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		662E946021273B94008B961C /* Build configuration list for PBXNativeTarget "TodoeyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				662E945E21273B94008B961C /* Debug */,
+				662E945F21273B94008B961C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		66B469CA212214DD00118553 /* Build configuration list for PBXProject "Todoey" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
