@@ -28,15 +28,117 @@ class TodoeyUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    
     
     func testAddNewCategory(){
+        
+       let app = XCUIApplication()
+        app.navigationBars["Todoey"].buttons["Add"].tap()
+        
+        let addNewCategoryAlert = app.alerts["Add new Category"]
+        addNewCategoryAlert.collectionViews.textFields["Create new Category"].tap()
+        
+        app/*@START_MENU_TOKEN@*/.buttons["shift"]/*[[".keyboards",".buttons[\"maiúsculas\"]",".buttons[\"shift\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        app/*@START_MENU_TOKEN@*/.keys["C"]/*[[".keyboards.keys[\"C\"]",".keys[\"C\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        app/*@START_MENU_TOKEN@*/.keys["a"]/*[[".keyboards.keys[\"a\"]",".keys[\"a\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        app/*@START_MENU_TOKEN@*/.keys["t"]/*[[".keyboards.keys[\"t\"]",".keys[\"t\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        app/*@START_MENU_TOKEN@*/.keys["e"]/*[[".keyboards.keys[\"e\"]",".keys[\"e\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        app/*@START_MENU_TOKEN@*/.keys["g"]/*[[".keyboards.keys[\"g\"]",".keys[\"g\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        app/*@START_MENU_TOKEN@*/.keys["o"]/*[[".keyboards.keys[\"o\"]",".keys[\"o\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        app.keys["r"].tap()
+        
+        app/*@START_MENU_TOKEN@*/.keys["y"]/*[[".keyboards.keys[\"y\"]",".keys[\"y\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        app/*@START_MENU_TOKEN@*/.keys["espaço"]/*[[".keyboards.keys[\"espaço\"]",".keys[\"espaço\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        app/*@START_MENU_TOKEN@*/.keys["more"]/*[[".keyboards",".keys[\"mais, números\"]",".keys[\"more\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        let count = app.tables.cells.count + 1
+        app.keys["\(count)"].tap()
+        
+        addNewCategoryAlert.buttons["Add Category"].tap()
+        
+      
+    }
+    
+    func testRemoveCategory(){
+        
+        
+        let tablesQuery = XCUIApplication().tables
+        let count = tablesQuery.cells.count
+        
+        tablesQuery.staticTexts["Category \(count)"].swipeLeft()
+
+        tablesQuery/*@START_MENU_TOKEN@*/.buttons["Delete"]/*[[".cells.buttons[\"Delete\"]",".buttons[\"Delete\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
        
+        
+    }
+    
+    func testAddTodoItemToCategory(){
+        
+        let app = XCUIApplication()
+        
+        app.tables/*@START_MENU_TOKEN@*/.staticTexts["Category 1"]/*[[".cells.staticTexts[\"Category 1\"]",".staticTexts[\"Category 1\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        app.navigationBars["Category 1"].buttons["Add"].tap()
+        
+        let addNewTodoeyItemAlert = app.alerts["Add new Todoey item"]
+        
+        addNewTodoeyItemAlert.collectionViews.textFields["Create new Item"].tap()
+        
+        let shiftButton  = app/*@START_MENU_TOKEN@*/.buttons["shift"]/*[[".keyboards",".buttons[\"maiúsculas\"]",".buttons[\"shift\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
+        shiftButton.tap()
+        
+        app/*@START_MENU_TOKEN@*/.keys["T"]/*[[".keyboards.keys[\"T\"]",".keys[\"T\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        let oKey = app/*@START_MENU_TOKEN@*/.keys["o"]/*[[".keyboards.keys[\"o\"]",".keys[\"o\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        oKey.tap()
+        
+        app/*@START_MENU_TOKEN@*/.keys["d"]/*[[".keyboards.keys[\"d\"]",".keys[\"d\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        oKey.tap()
+        
+        
+        let espaOKey = app/*@START_MENU_TOKEN@*/.keys["espaço"]/*[[".keyboards.keys[\"espaço\"]",".keys[\"espaço\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        espaOKey.tap()
+        
+        shiftButton.tap()
+        
+        app/*@START_MENU_TOKEN@*/.keys["I"]/*[[".keyboards.keys[\"I\"]",".keys[\"I\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        app/*@START_MENU_TOKEN@*/.keys["t"]/*[[".keyboards.keys[\"t\"]",".keys[\"t\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        app/*@START_MENU_TOKEN@*/.keys["e"]/*[[".keyboards.keys[\"e\"]",".keys[\"e\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        app/*@START_MENU_TOKEN@*/.keys["m"]/*[[".keyboards.keys[\"m\"]",".keys[\"m\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        espaOKey.tap()
+        
+        let itemCount =  app.tables.cells.count + 1
+        
+        app.keys["more"].tap()
+        
+        app.keys["\(itemCount)"].tap()
+        
+        addNewTodoeyItemAlert.buttons["Add Item"].tap()
+    }
+    
+    func testRemoveTodoItem() {
+        
+        let tablesQuery = XCUIApplication().tables
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Category 1"]/*[[".cells.staticTexts[\"Category 1\"]",".staticTexts[\"Category 1\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        let count = tablesQuery.cells.count
+        tablesQuery.staticTexts["Todo Item \(count)"].swipeLeft()
+        
+        tablesQuery/*@START_MENU_TOKEN@*/.buttons["Delete"]/*[[".cells.buttons[\"Delete\"]",".buttons[\"Delete\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
     }
     
 }
