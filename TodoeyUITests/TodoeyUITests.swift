@@ -9,7 +9,7 @@
 import XCTest
 
 class TodoeyUITests: XCTestCase {
-        
+    
     override func setUp() {
         super.setUp()
         
@@ -19,7 +19,7 @@ class TodoeyUITests: XCTestCase {
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         XCUIApplication().launch()
-
+        
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
@@ -31,7 +31,7 @@ class TodoeyUITests: XCTestCase {
     
     func testAddNewCategory(){
         
-       let app = XCUIApplication()
+        let app = XCUIApplication()
         app.navigationBars["Todoey"].buttons["Add"].tap()
         
         let addNewCategoryAlert = app.alerts["Add new Category"]
@@ -64,7 +64,7 @@ class TodoeyUITests: XCTestCase {
         
         addNewCategoryAlert.buttons["Add Category"].tap()
         
-      
+        
     }
     
     func testRemoveCategory(){
@@ -74,9 +74,9 @@ class TodoeyUITests: XCTestCase {
         let count = tablesQuery.cells.count
         
         tablesQuery.staticTexts["Category \(count)"].swipeLeft()
-
+        
         tablesQuery/*@START_MENU_TOKEN@*/.buttons["Delete"]/*[[".cells.buttons[\"Delete\"]",".buttons[\"Delete\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-       
+        
         
     }
     
@@ -141,4 +141,23 @@ class TodoeyUITests: XCTestCase {
         
     }
     
+    func testWillRunByScript() {
+        
+        let app = XCUIApplication()
+        
+        let navBar =  app.descendants(matching: .navigationBar)
+        let navBarButtons = navBar.descendants(matching: .button)
+        let navBarButton = navBarButtons.element(boundBy: 0)
+        navBarButton.tap();
+        
+        let addNewCategoryAlert = app.alerts
+        let buttons = addNewCategoryAlert.buttons.element(boundBy: 0)
+        buttons.tap()
+        
+    }
+    
+    
+    func testWillAddANewCategory (){
+        
+    }
 }
